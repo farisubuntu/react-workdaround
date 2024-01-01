@@ -1,35 +1,23 @@
-import { useRef, useState } from "react";
-import "./App.css";
+import { forwardRef, useRef } from "react";
 
-function VideoPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const ref = useRef(null);
+const MyInput = forwardRef((props, ref) => {
+  return <input {...props} ref={ref} />;
+});
+
+
+// Form Component
+
+function Form() {
+  const inputRef = useRef(null);
 
   function handleClick() {
-    const nextIsPlaying = !isPlaying;
-    setIsPlaying(nextIsPlaying);
-
-    if (nextIsPlaying) {
-      ref.current.play();
-    } else {
-      ref.current.pause();
-    }
+    inputRef.current.focus();
   }
 
   return (
     <>
-      <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
-      <video
-        width="250"
-        ref={ref}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      >
-        <source
-          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-          type="video/mp4"
-        />
-      </video>
+      <MyInput ref={inputRef} />
+      <button onClick={handleClick}>Focus the input</button>
     </>
   );
 }
@@ -37,10 +25,19 @@ function VideoPlayer() {
 function App() {
   return (
     <>
-      <h2>hello</h2>
+      <p className="small">
+        Example 4 of 4: Exposing a ref to your own component Sometimes, you may
+        want to let the parent component manipulate the DOM inside of your
+        component. For example, maybe you’re writing a MyInput component, but
+        you want the parent to be able to focus the input (which the parent has
+        no access to). You can use a combination of useRef to hold the input and
+        forwardRef to expose it to the parent component. Read a detailed
+        walkthrough here.
+      </p>
       <hr />
-      <VideoPlayer />
-      
+          <Form />
+
+
     </>
   );
 }
