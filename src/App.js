@@ -1,51 +1,48 @@
 import { useRef, useState } from "react";
 import "./App.css";
 
-function CatFriends() {
-  const listRef = useRef(null);
+function VideoPlayer() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
 
+  function handleClick() {
+    const nextIsPlaying = !isPlaying;
+    setIsPlaying(nextIsPlaying);
 
-
-
-  function scrollToIndex(index) {
-    
-    const listNode = listRef.current;
-    // This line assumes a particular DOM structure:
-    const imgNode = listNode.querySelectorAll("li > img")[index];
-    imgNode.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
-
+    if (nextIsPlaying) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
+    }
   }
 
   return (
     <>
-      <nav>
-        <button onClick={() => scrollToIndex(0)}>Tom</button>
-        <button onClick={() => scrollToIndex(1)}>Maru</button>
-        <button onClick={() => scrollToIndex(2)}>Jellylorum</button>
-      </nav>
-      <div>
-        <ul ref={listRef}>
-          <li>
-            <img src="https://placekitten.com/g/200/200" alt="Tom" />
-          </li>
-          <li>
-            <img src="https://placekitten.com/g/300/200" alt="Maru" />
-          </li>
-          <li>
-            <img src="https://placekitten.com/g/250/200" alt="Jellylorum" />
-          </li>
-        </ul>
-      </div>
+      <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
+      <video
+        width="250"
+        ref={ref}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
+      </video>
     </>
   );
 }
 
 function App() {
-  return <CatFriends />;
+  return (
+    <>
+      <h2>hello</h2>
+      <hr />
+      <VideoPlayer />
+      
+    </>
+  );
 }
 
 export default App;
