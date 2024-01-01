@@ -1,42 +1,51 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import "./App.css";
 
-export default function Form() {
-  const inputRef = useRef(null);
-  const commandRef = useRef(null);
+function CatFriends() {
+  const listRef = useRef(null);
 
-  function handleClick() {
-    inputRef.current.focus();
+
+
+
+  function scrollToIndex(index) {
+    
+    const listNode = listRef.current;
+    // This line assumes a particular DOM structure:
+    const imgNode = listNode.querySelectorAll("li > img")[index];
+    imgNode.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+
   }
 
-function handleChangeColor(){
-  commandRef.current.style.color="green";
-  
-}
   return (
     <>
-      <input ref={inputRef} />
-      <button onClick={handleClick}>Focus the input</button>
-      <div className="card" style={{ width: "18rem" }}>
-        <img
-          src="https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-          className="card-img-top"
-          alt="..."
-        />
-        <div ref={commandRef} className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <h6 className="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          b5
-        </div>
-        <button onClick={handleChangeColor}>Change color</button>
+      <nav>
+        <button onClick={() => scrollToIndex(0)}>Tom</button>
+        <button onClick={() => scrollToIndex(1)}>Maru</button>
+        <button onClick={() => scrollToIndex(2)}>Jellylorum</button>
+      </nav>
+      <div>
+        <ul ref={listRef}>
+          <li>
+            <img src="https://placekitten.com/g/200/200" alt="Tom" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/300/200" alt="Maru" />
+          </li>
+          <li>
+            <img src="https://placekitten.com/g/250/200" alt="Jellylorum" />
+          </li>
+        </ul>
       </div>
     </>
   );
 }
 
 function App() {
-  return <Form />;
+  return <CatFriends />;
 }
+
+export default App;
