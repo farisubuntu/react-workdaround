@@ -16,6 +16,7 @@ function VideoPlayer() {
     }
   }
 
+  
   return (
     <>
       <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
