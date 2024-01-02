@@ -1,10 +1,12 @@
-import Page from "./Page";
 import "./App.css";
 
 function App() {
-  return;
+  return (
   <>
-    <Page />
-  </>;
+   <h2>
+    hello - useContext -2
+  </h2>
+  </>
+  )
 }
 export default App;
