@@ -19,7 +19,7 @@ function Heading({children }) {
    case 6:
      return <h6>{children}</h6>;
    default:
-     throw Error('Unknown level: ');
+     console.log('not known.....');
  }
 }
 
