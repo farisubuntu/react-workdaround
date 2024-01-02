@@ -4,8 +4,6 @@ import LevelContext from "./LevelContext";
 
 import "./App.css";
 
-<<<<<<< HEAD
-=======
 function Page() {
   return (
     <Section>
@@ -28,19 +26,13 @@ function Page() {
     </Section>
   );
 }
->>>>>>> context-2
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
-    <h2>hello</h2>
-      <Page />
-=======
      
         <Page />
   
->>>>>>> context-2
     </>
   );
 }
