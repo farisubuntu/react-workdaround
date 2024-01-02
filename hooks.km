@@ -1,0 +1,287 @@
+{
+    "root": {
+        "data": {
+            "id": "cy4iu28643s0",
+            "created": 1704229208646,
+            "text": "Bult-in React Hooks",
+            "font-size": 24,
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cy4je6upzk00",
+                    "created": 1704230786000,
+                    "text": "State Hooks ",
+                    "font-size": 18,
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "font-weight": "bold",
+                    "expandState": "expand",
+                    "layout_bottom_offset": {
+                        "x": 224,
+                        "y": -2
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jhdc5sn40",
+                            "created": 1704231035208,
+                            "text": "useState",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cy4jhz86z3k0",
+                            "created": 1704231082857,
+                            "text": "useReducer",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cy4jio9z7a00",
+                    "created": 1704231137385,
+                    "text": "Context Hooks",
+                    "font-size": 18,
+                    "font-weight": "bold",
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "expandState": "expand",
+                    "layout_bottom_offset": {
+                        "x": 180,
+                        "y": -2
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jizk0z480",
+                            "created": 1704231161937,
+                            "text": "useContext",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cy4jkt6860w0",
+                    "created": 1704231304770,
+                    "text": "Ref Hooks ",
+                    "font-size": 18,
+                    "font-weight": "bold",
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "expandState": "expand",
+                    "layout_bottom_offset": {
+                        "x": 160,
+                        "y": 0
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jl22nt7k0",
+                            "created": 1704231324146,
+                            "text": "useRef",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand",
+                            "layout_filetree-down_offset": {
+                                "x": -2,
+                                "y": 8
+                            }
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cy4jl3rxes80",
+                            "created": 1704231327850,
+                            "text": "useImperativeHandle",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cy4jm0brlo80",
+                    "created": 1704231398707,
+                    "text": "Effect Hooks ",
+                    "font-size": 18,
+                    "font-weight": "bold",
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jm9126s80",
+                            "created": 1704231417651,
+                            "text": "useEffect",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cy4jmpxxzkg0",
+                    "created": 1704231454467,
+                    "text": "Performance Hooks ",
+                    "font-size": 18,
+                    "font-weight": "bold",
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "note": "\n",
+                    "resource": [],
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jn0c88c80",
+                            "created": 1704231477099,
+                            "text": "useMemo",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand",
+                            "layout_right_offset": {
+                                "x": 18,
+                                "y": -14
+                            }
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cy4jn4125j40",
+                            "created": 1704231485131,
+                            "text": "useCallback",
+                            "font-size": 24,
+                            "background": "#eeece1",
+                            "color": "#e36c0a",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cy4jqqj9k800",
+                            "created": 1704231769213,
+                            "text": "To prioritize rendering, use one of these Hooks",
+                            "font-size": 24,
+                            "color": "#4e6128",
+                            "font-style": "italic",
+                            "layout_right_offset": {
+                                "x": -40,
+                                "y": 76
+                            },
+                            "layout_filetree-down_offset": {
+                                "x": 0,
+                                "y": 34
+                            }
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cy4jrd2f2eo0",
+                                    "created": 1704231818261,
+                                    "text": "useTransition",
+                                    "font-size": 24,
+                                    "color": "#ffffff",
+                                    "background": "#76923c"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cy4jrh9njkw0",
+                                    "created": 1704231827405,
+                                    "text": "useDeferredValue",
+                                    "background": "#76923c",
+                                    "font-size": 24,
+                                    "color": "#ffffff"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cy4jvsaqci80",
+                    "created": 1704232164872,
+                    "text": "Resource Hooks ",
+                    "font-size": 18,
+                    "font-weight": "bold",
+                    "background": "#c4bc96",
+                    "color": "#0d0d0d",
+                    "expandState": "expand",
+                    "layout_bottom_offset": {
+                        "x": -320,
+                        "y": 16
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cy4jw0gpv0o0",
+                            "created": 1704232182648,
+                            "text": "To read a value from a resource, use this Hook:",
+                            "font-size": 24,
+                            "font-style": "italic",
+                            "color": "#4e6128"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cy4jwvbk37c0",
+                                    "created": 1704232249816,
+                                    "text": "use",
+                                    "font-size": 24,
+                                    "background": "#76923c",
+                                    "color": "#ffffff"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "filetree",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
