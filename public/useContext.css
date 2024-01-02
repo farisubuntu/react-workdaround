@@ -4,7 +4,7 @@
 
 }
 h1{
- font-size: 2rem;
+ font-size: 4rem;
  border:1px solid green;
 }
 body{
@@ -16,8 +16,8 @@ blockquote{
  background-color: whitesmoke;
  margin-bottom: 1rem;
 }
-p,li{
- font-size: 2rem;
+p,li,code,blockquote{
+ font-size: 3rem;
 }
 code{
  color:red;
@@ -25,4 +25,26 @@ code{
 em{
 
  color:green;
+}
+
+.js{
+ border:1px dashed blue;
+}
+
+.tab-index-1{
+
+ color: blue;
+}
+
+.im{
+ color:blue;
+}
+.cf{
+ color:red;
+}
+.at,.op{
+ color:brown;
+}
+.st{
+ color:chocolate;
 }
