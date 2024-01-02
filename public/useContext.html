@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="useContext.css">
+    <title>useContext</title>
+  </head>
+  <body>
+    <h1 id="usecontext"><code>useContext</code>:</h1>
+    <blockquote>
+      <p>
+        Context lets a parent—even a distant one!—provide some data to the
+        entire tree inside of it.
+      </p>
+    </blockquote>
+    <p>You can apply <code>useContext</code> in three steps:</p>
+    <ol type="1">
+      <li>
+        <strong>Create</strong> a context. (ex. called it
+        <code>LevelContext</code> and put it inside seperate file such as
+        <code>LevelContext.js</code>)
+      </li>
+    </ol>
+    <ul>
+      <li>
+        <p>
+          you need to <code>export</code> it from a file so that your components
+          can use it
+        </p>
+        <div class="sourceCode" id="cb1">
+          <pre
+            class="sourceCode js"
+          ><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { createContext } <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span></span>
+ <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> LevelContext <span class="op">=</span> <span class="fu">createContext</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre>
+        </div>
+      </li>
+    </ul>
+    <ol start="2" type="1">
+      <li>
+        <p>
+          <strong>Use</strong> that context from the component that needs the
+          data. (<em
+            >ex. child component that will use nearst parent provider</em
+          >)
+        </p>
+        <div class="sourceCode" id="cb2">
+          <pre
+            class="sourceCode js"
+          ><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Heading</span>({ children }) {</span>
+ <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> level <span class="op">=</span> <span class="fu">useContext</span>(LevelContext)<span class="op">;</span></span>
+ <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+ <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
+        </div>
+      </li>
+      <li>
+        <p>
+          <strong>Provide</strong> that context from the component that
+          specifies the data. (ex. here <code>Section</code> will provide
+          <code>LevelContext</code>.)
+        </p>
+        <div class="sourceCode" id="cb3">
+          <pre
+            class="sourceCode js"
+          ><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { LevelContext } <span class="im">from</span> <span class="st">&#39;./LevelContext.js&#39;</span><span class="op">;</span></span>
+ <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+ <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span> <span class="fu">Section</span>({ level<span class="op">,</span> children }) {</span>
+ <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+ <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>section className<span class="op">=</span><span class="st">&quot;section&quot;</span><span class="op">&gt;</span></span>
+ <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>LevelContext<span class="op">.</span><span class="at">Provider</span> value<span class="op">=</span>{level}<span class="op">&gt;</span></span>
+ <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        {children}</span>
+ <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;/</span>LevelContext<span class="op">.</span><span class="at">Provider</span><span class="op">&gt;</span></span>
+ <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>section<span class="op">&gt;</span></span>
+ <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+ <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
+        </div>
+      </li>
+    </ol>
+  </body>
+</html>
