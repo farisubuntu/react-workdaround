@@ -2,7 +2,6 @@ import Heading from "./Heading";
 import Section from "./Section";
 
 
-
 function Page() {
  return (
    // here js
@@ -10,6 +9,7 @@ function Page() {
       {/* Let’s say you want multiple headings
        within the same Section to always
      have the same size?? */}
+   
    <Section>
        <Heading level={1}>Title</Heading>
        <Section level={3}>
@@ -19,7 +19,8 @@ function Page() {
           “ask” for data from somewhere
            above in the tree. */}
            {/*You can’t do it with props alone.
-            This is where context comes into play.   */}
+            This is where context comes into play. 
+           */}
          <Heading>Heading</Heading>
          <Heading>Heading</Heading>
          <Heading>Heading</Heading>
@@ -35,6 +36,8 @@ function Page() {
          </Section>
        </Section>
      </Section>
+   
+
    </>
  );
 }
