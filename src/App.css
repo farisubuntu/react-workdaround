@@ -1,0 +1,22 @@
+.lessons_links{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+
+}
+
+.category-list{
+ padding:5px;
+ display: flex;
+ 
+flex-wrap: wrap;
+row-gap: 1rem;
+column-gap: 1rem;
+
+}
+
+Category{
+ border:1px solid blue;
+}
+.category-list > *{
+ border:1px solid blue;
+}
