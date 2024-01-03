@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { getUrl } from "./links.js";
 
 
+
 function Category({ cat_no }) {
   const [catData, setCatData] = useState(null);
   const [isReady, setIsReady] = useState(false);
@@ -19,16 +20,11 @@ function Category({ cat_no }) {
       });
   }, []);
 
-
   function getLessonsTitles() {
     const cat_id = catData.category.id;
     const lessons_titles = catData.lessons.map((l) => {
       return (
-        <a
-          key={l.id}
-          className="card-link"
-          href={getUrl(cat_no)}
-        >
+        <a key={l.id} className="card-link" href={getUrl(cat_no)}>
           {l.name}
         </a>
       );
@@ -51,10 +47,7 @@ function Category({ cat_no }) {
               <p className="card-text">
                 نص مختصر لإعطاء فكرة عن الدرس ومحتاوياته بالإضافة للنقاط المهمة
               </p>
-              <div className="lessons_links">
-              {getLessonsTitles()}
-
-              </div>
+              <div className="lessons_links">{getLessonsTitles()}</div>
             </div>
           </div>
         </>
@@ -64,12 +57,11 @@ function Category({ cat_no }) {
 }
 
 function App() {
-  const categories = [<Category />];
   return (
     <div className="category-list">
-      <Category cat_no={10} />
-      <Category cat_no={1} />
-      <Category cat_no={2} />
+      <Category cat_no="1" />
+      <Category cat_no="2" />
+      <Category cat_no="3" />
     </div>
   );
 }

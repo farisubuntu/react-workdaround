@@ -21,3 +21,8 @@ Category{
 .category-list > *{
  border:1px solid blue;
 }
+
+.flex{
+ display: flex;
+ flex-direction: column;
+}
