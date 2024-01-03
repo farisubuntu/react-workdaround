@@ -1,30 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 
-function EffectsDemoTwoStates() {
-  const [title, setTitle] = useState("default title");
-  const titleRef = useRef();
-  const [darkMode, setDarkMode] = useState(false);
-  useEffect(() => {
-    console.log("useEffect");
-    document.title = title;
-  });
-  console.log("render");
-  const handleClick = () => setTitle(titleRef.current.value);
-  const handleCheckboxChange = () => setDarkMode((prev) => !prev);
-  return (
-    <div className={darkMode ? "dark-mode" : ""}>
-      <label htmlFor="darkMode">dark mode</label>
-      <input
-        name="darkMode"
-        type="checkbox"
-        checked={darkMode}
-        onChange={handleCheckboxChange}
-      />
-      <input ref={titleRef} />
-      <button onClick={handleClick}>change title</button>
-    </div>
-  );
+
+function Fetcher() {
+ const [todos,setTodos] = useState(null);
+
+ useEffect(()=>{
+  fetch("https://jsonplaceholder.typicode.com/todos/")
+  .then((res) => res.json())
+  .then((data) => setTodos(data))
+  console.log(todos);
+ },[]) 
+
+ 
+ return(
+  <>
+  <h2>DATA</h2>
+  </>
+ )
 }
 
 export default function App() {
@@ -32,7 +25,8 @@ export default function App() {
     <>
       <h3>Hello</h3>
       <hr />
-      <EffectsDemoTwoStates />
+      <Fetcher />
+
     </>
   );
 }
