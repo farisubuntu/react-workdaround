@@ -1,0 +1,82 @@
+<h2 id="useeffectreact-notes"><code>useEffect</code>/react notes:</h2>
+<ul>
+<li><p>A couple of key points to note before we get started:</p>
+<ul>
+<li>Functions defined in the body of your function component get
+recreated on every <em>render cycle</em>. This has an impact(مؤثر) if
+you use it inside of your effect. There are strategies to deal with it
+(for example, <strong>hoist</strong> them outside of the component,
+define them inside of the effect, use <code>useCallback</code>)</li>
+<li>It is important to understand basic JavaScript concepts such as
+stale closures, otherwise, you might have trouble tackling problems with
+outdated props or state values inside of your effect</li>
+<li>You should not ignore suggestions from the React Hooks ESLint
+plugin</li>
+<li>Do not mimic(تقلد) the lifecycle methods of class-based components.
+This way of thinking does more harm than good. Instead, think more about
+data flow and state associated with effects because you run effects
+based on state changes across render cycles</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>For Interactive react lifecycle interactive diagram see []
+(https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)</p>
+</blockquote>
+<h4
+id="the-control-flow-of-effects.-the-following-steps-are-carried-out-when-executing-an-effect">The
+control flow of effects. The following steps are carried out when
+executing an effect:</h4>
+<ul>
+<li><strong>Initial render/mounting</strong>: When a functional
+component that contains a <code>useEffect</code> Hook is initially
+rendered, the code inside the <code>useEffect</code> block runs after
+the initial render of the component. This is similar to
+<code>componentDidMount</code> class components</li>
+<li><strong>Subsequent renders:</strong> You can pass a dependency array
+as the second argument to the <code>useEffect</code> Hook. This array
+contains variables or values that the effect depends on. Any change in
+these variables will re-render the component. If no dependency array is
+given, the effect will run on every render</li>
+<li><strong>Cleanup function</strong>: You can also run an optional
+cleanup function inside the effect. It is used to clean up any resources
+or subscriptions created by the effect when the component is unmounted
+or when the dependencies change</li>
+<li><strong>Unmounting</strong>: If a cleanup function is present, it is
+run and then the component is unmounted from the DOM</li>
+</ul>
+<p>The signature of the useEffect Hook looks like this:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">useEffect</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// execute side effect</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// optional dependency array</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 0 or more entries</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    ] </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Because the second argument is optional, the following execution is
+perfectly fine:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">useEffect</span>(() <span class="kw">=&gt;</span> { </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// execute side effect</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p><strong>Example: The user can change the document title with an input
+field: </strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React<span class="op">,</span> { useState<span class="op">,</span> useRef<span class="op">,</span> useEffect } <span class="im">from</span> <span class="st">&quot;react&quot;</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">EffectsDemoNoDependency</span>() {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> [title<span class="op">,</span> setTitle] <span class="op">=</span> <span class="fu">useState</span>(<span class="st">&quot;default title&quot;</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> titleRef <span class="op">=</span> <span class="fu">useRef</span>()<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">useEffect</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;useEffect&quot;</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">document</span><span class="op">.</span><span class="at">title</span> <span class="op">=</span> title<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> handleClick <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="fu">setTitle</span>(titleRef<span class="op">.</span><span class="at">current</span><span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;render&quot;</span>)<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>input ref<span class="op">=</span>{titleRef} <span class="op">/&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>button onClick<span class="op">=</span>{handleClick}<span class="op">&gt;</span>change title<span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
