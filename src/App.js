@@ -1,23 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 
-
 function Fetcher() {
- const [todos,setTodos] = useState(null);
+  const [todos, setTodos] = useState([]);
+  
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.json())
+      .then((data) => setTodos(data));
+      
+  }, );
 
- useEffect(()=>{
-  fetch("https://jsonplaceholder.typicode.com/todos/")
-  .then((res) => res.json())
-  .then((data) => setTodos(data))
-  console.log(todos);
- },[]) 
-
- 
- return(
-  <>
-  <h2>DATA</h2>
-  </>
- )
+  return (
+    <>
+      <h2>DATA</h2>
+      <div>nothing</div>
+      <div></div>
+    </>
+  );
 }
 
 export default function App() {
@@ -26,7 +26,6 @@ export default function App() {
       <h3>Hello</h3>
       <hr />
       <Fetcher />
-
     </>
   );
 }
