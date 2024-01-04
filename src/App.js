@@ -1,10 +1,15 @@
 import "./App.css";
 
 
+
 function App() {
-  return;
+  return(
   <>
-    <Page />
-  </>;
+    <h1>Hello World</h1>
+    <hr />
+
+
+  </>
+  )
 }
-export default App;
+export default App
