@@ -1,6 +1,13 @@
+import { useState } from "react";
 import MyConext from "./MyContext";
 
 function ContextProvider({ children }) {
-  return <MyConext.Provider>{children}</MyConext.Provider>;
+ const [id,setId] = useState(0);
+  return 
+  <>
+  <MyConext.Provider value={id}>
+    {children}
+  </MyConext.Provider>;
+  </>
 }
 export default ContextProvider;

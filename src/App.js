@@ -1,20 +1,20 @@
 import "./App.css";
 import React from "react";
-import {MyContext} from "./MyContext";
+import MyContext from "./MyContext";
+import { useContext } from "react";
+import ContextProvider from "./ContextProvider";
 
 
+function App() {
+  const contValue = useContext(MyContext);
 
-
-
-
-function App(){
-
-  return(
+  return (
     <>
-      <h3>useContext</h3>
+      <ContextProvider>
+        {contValue}
+      </ContextProvider>
     </>
-  )
+  );
 }
-
 
 export default App;
