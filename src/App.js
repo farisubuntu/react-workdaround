@@ -1,12 +1,11 @@
 import "./App.css";
-import React from "react";
 import MyContext from "./MyContext";
 import { useContext } from "react";
 import ContextProvider from "./ContextProvider";
 
 
 function App() {
-  const contValue = useContext(MyContext);
+  let contValue = useContext(MyContext);
 
   return (
     <>

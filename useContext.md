@@ -76,4 +76,4 @@ function MyComponent() {
 }
 export default MyComponent;
 
-```and
+```

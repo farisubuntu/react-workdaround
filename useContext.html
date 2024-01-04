@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>useContext</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+ 
+ <h2 id="working-wiht-usecontext">Working wiht
+  <code>useContext</code></h2>
+  <p><strong>Basic Usage:</strong></p>
+  <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React<span class="op">,</span> { useContext } <span class="im">from</span> <span class="st">&quot;react&quot;</span><span class="op">;</span></span>
+  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a context</span></span>
+  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyContext <span class="op">=</span> React<span class="op">.</span><span class="fu">createContext</span>()<span class="op">;</span></span>
+  <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyComponent</span>() {</span>
+  <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Use the useContext hook to access the context</span></span>
+  <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> contextValue <span class="op">=</span> <span class="fu">useContext</span>(MyContext)<span class="op">;</span></span>
+  <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Now, contextValue contains the value of MyContext</span></span>
+  <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+  <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+  <h4 id="usecontext-hook-uses"><code>useContext</code> Hook Uses:</h4>
+  <p>Context can help you:</p>
+  <ul>
+  <li>Avoid Prop Drilling: Pass data from a parent component to deeply
+  nested child components without intermediaries.</li>
+  <li>Global State Management: Manage global state efficiently, especially
+  when Redux or other state management libraries might be overkill.</li>
+  <li>Theme Management: Share themes or styles across your application
+  easily.</li>
+  </ul>
+  <p><strong>Steps to use <code>useContext</code> hook:</strong></p>
+  <ol type="1">
+  <li><strong>Importing React and Creating a Context</strong></li>
+  </ol>
+  <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React<span class="op">,</span> { createContext } <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span></span>
+  <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a context with a default value (can be null)</span></span>
+  <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyContext <span class="op">=</span> <span class="fu">createContext</span>(<span class="kw">null</span>)<span class="op">;</span></span>
+  <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> MyContext<span class="op">;</span></span></code></pre></div>
+  <ol start="2" type="1">
+  <li><strong>Creating a Context Provider ( a component that provides the
+  context’s value to its descendants.)</strong></li>
+  </ol>
+  <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span></span>
+  <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> MyContext <span class="im">from</span> <span class="st">&#39;./MyContext&#39;</span><span class="op">;</span> <span class="co">//import the MyContext</span></span>
+  <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">//  MyProvider component receives children as a prop. </span></span>
+  <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">// + This prop represents the descendants of the provider component.</span></span>
+  <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyProvider</span>({ children }) { </span>
+  <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the state or data you want to share</span></span>
+  <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">// +  it could be any data, including state variables or functions.</span></span>
+  <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> sharedData <span class="op">=</span> <span class="st">&#39;This is some shared data&#39;</span><span class="op">;</span> </span>
+  <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+  <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">// rap the children in MyContext.Provider and pass the </span></span>
+  <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">// + shared data as the value prop.</span></span>
+  <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>MyContext<span class="op">.</span><span class="at">Provider</span> value<span class="op">=</span>{sharedData}<span class="op">&gt;</span></span>
+  <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      {children}</span>
+  <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>MyContext<span class="op">.</span><span class="at">Provider</span><span class="op">&gt;</span></span>
+  <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+  <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+  <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> MyProvider<span class="op">;</span></span></code></pre></div>
+  <ol start="3" type="1">
+  <li><strong>Consuming <em>Context</em> with
+  <code>useContext</code></strong></li>
+  </ol>
+  <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React<span class="op">,</span> { useContext } <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span></span>
+  <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> MyContext <span class="im">from</span> <span class="st">&#39;./MyContext&#39;</span><span class="op">;</span> <span class="co">//import the MyContext that we created earlier.</span></span>
+  <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyComponent</span>() {</span>
+  <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Use the useContext hook to access the context</span></span>
+  <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">// +  This hook takes the context as an argument </span></span>
+  <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">// + and returns its current value.</span></span>
+  <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+  <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> contextValue <span class="op">=</span> <span class="fu">useContext</span>(MyContext)<span class="op">;</span></span>
+  <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+  <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">// use the context value in this component as needed</span></span>
+  <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+  <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>p<span class="op">&gt;</span>Context <span class="dt">Value</span><span class="op">:</span> {contextValue}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+  <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+  <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+  <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>}</span>
+  <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> MyComponent<span class="op">;</span></span></code></pre></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
