@@ -1,0 +1,10 @@
+.btn{
+ font-size: 2rem;
+ width: 6rem;
+ margin: 0.1rem 1rem;
+}
+
+.primary{
+ color:yellow;
+ background-color: #0D6EFD;
+}
