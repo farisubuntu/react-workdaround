@@ -28,3 +28,5 @@ function FormControl() {
     </>
   );
 }
+
+export default FormControl;

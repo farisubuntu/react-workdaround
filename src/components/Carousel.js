@@ -14,15 +14,7 @@ function Carousel() {
               alt="frog"
             />
           </div>
-          <div className="carousel-item">
-            <img<div className="carousel-item">
-      <img className="d-block w-100" src="https://picsum.photos/205" alt="frog" />
-    </div>
-              className="d-block w-100"
-              src="https://picsum.photos/201"
-              alt="frog"
-            />
-          </div>
+
           <div className="carousel-item">
             <img
               className="d-block w-100"

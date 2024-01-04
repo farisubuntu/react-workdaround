@@ -5,7 +5,7 @@ import { createContext } from "react";
 const GlobalContext = createContext({
 
  darkMode: false,
- toggleMode: () => {darkMode: !darkMode},
+ appTheme: "dark",
  appVersion:4.24
 });
 

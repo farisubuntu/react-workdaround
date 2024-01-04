@@ -1,5 +1,10 @@
 import "./App.css";
-
+import {
+  Carousel,
+  FormControl,
+  NavBar,
+  Footer
+} from "./components";
 
 
 function App() {
