@@ -1,7 +1,9 @@
+import "./Carousel.css";
+
 function Carousel() {
   return (
-    <>
-      <div
+    <div className="container">
+      {/* <div
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -10,43 +12,42 @@ function Carousel() {
           <div className="carousel-item active">
             <img
               className="d-block w-100"
-              src="https://picsum.photos/200"
-              alt="frog"
-            />
-          </div>
-
-          <div className="carousel-item">
-            <img
-              className="d-block w-100"
-              src="https://picsum.photos/202"
+              src="https://picsum.photos/300"
               alt="frog"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://picsum.photos/203"
+              src="https://picsum.photos/302"
               alt="frog"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://picsum.photos/204"
+              src="https://picsum.photos/303"
               alt="frog"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://picsum.photos/205"
+              src="https://picsum.photos/304"
               alt="frog"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://picsum.photos/206"
+              src="https://picsum.photos/305"
+              alt="frog"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              className="d-block w-100"
+              src="https://picsum.photos/306"
               alt="frog"
             />
           </div>
@@ -69,10 +70,9 @@ function Carousel() {
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }
-
 
 export default Carousel;

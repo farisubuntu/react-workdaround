@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { GlobalContext } from "../components/index";
+
+
 function NavBar(){
+
+  const app_data = useContext(GlobalContext);
+
  return (
   <>
   <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -39,9 +46,20 @@ function NavBar(){
             Disabled
           </a>
         </li>
+        <li className="nav-item">
+          <a className="nav-link disabled" aria-disabled="true">
+            Theme Mode : <span className="badge bg-secondary">{app_data.appTheme}</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link disabled" aria-disabled="true">
+            App Version: <span className="badge bg-secondary">{app_data.appVersion}</span>
+          </a>
+          </li>
       </ul>
     </div>
   </div>
+  
 </nav>
 
   </>
