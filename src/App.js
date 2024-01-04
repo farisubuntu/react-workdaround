@@ -12,6 +12,8 @@ function Badge() {
 
   useEffect(()=>{
     inputRef.current.addEventListener('click',handleAlertClick)
+    console.log('useEffect inputRef')
+    
 
   },[])
 
