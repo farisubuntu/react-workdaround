@@ -1,10 +1,20 @@
-import Page from "./Page";
 import "./App.css";
+import React from "react";
+import {MyContext} from "./MyContext";
 
-function App() {
-  return;
-  <>
-    <Page />
-  </>;
+
+
+
+
+
+function App(){
+
+  return(
+    <>
+      <h3>useContext</h3>
+    </>
+  )
 }
+
+
 export default App;
