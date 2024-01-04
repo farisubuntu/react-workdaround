@@ -1,0 +1,201 @@
+{
+	"root": {
+		"data": {
+			"id": "cy6a0yg59pc0",
+			"created": 1704407478895,
+			"text": "Page",
+			"expandState": "expand"
+		},
+		"children": [
+			{
+				"data": {
+					"id": "cy6a2ct34kg0",
+					"created": 1704407588516,
+					"text": "TopicContent",
+					"background": "#365f91",
+					"color": "#ffffff",
+					"font-size": 24,
+					"expandState": "expand"
+				},
+				"children": [
+					{
+						"data": {
+							"id": "cy6a3o8zpmo0",
+							"created": 1704407691787,
+							"text": "Title",
+							"background": "#76923c",
+							"color": "#ffffff",
+							"font-weight": "bold",
+							"font-size": 24
+						},
+						"children": []
+					},
+					{
+						"data": {
+							"id": "cy6a9iooqew0",
+							"created": 1704408149860,
+							"text": "TOC",
+							"font-size": 24,
+							"font-weight": "bold",
+							"background": "#76923c",
+							"color": "#ffffff"
+						},
+						"children": []
+					},
+					{
+						"data": {
+							"id": "cy6a9xfhjzs0",
+							"created": 1704408181956,
+							"text": "Article",
+							"font-size": 24,
+							"font-weight": "bold",
+							"background": "#76923c",
+							"color": "#ffffff"
+						},
+						"children": [
+							{
+								"data": {
+									"id": "cy6aaqvs8tk0",
+									"created": 1704408246068,
+									"text": "Topic",
+									"font-weight": "bold",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-size": 18
+								},
+								"children": [
+									{
+										"data": {
+											"id": "cy6acsrjsrk0",
+											"created": 1704408406894,
+											"text": "Text",
+											"font-size": 16,
+											"background": "#b2a1c7",
+											"color": "#ffffff"
+										},
+										"children": []
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			{
+				"data": {
+					"id": "cy6a1ehvdaw0",
+					"created": 1704407513828,
+					"text": "Sidbar",
+					"expandState": "expand",
+					"font-size": 24,
+					"background": "#365f91",
+					"color": "#ffffff"
+				},
+				"children": [
+					{
+						"data": {
+							"id": "cy6a2oojhew0",
+							"created": 1704407614363,
+							"text": "Indexes",
+							"expandState": "expand",
+							"font-size": 24,
+							"font-weight": "bold",
+							"background": "#76923c",
+							"color": "#ffffff"
+						},
+						"children": [
+							{
+								"data": {
+									"id": "cy6a32cll8o0",
+									"created": 1704407644116,
+									"text": ".....",
+									"font-weight": "bold",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-size": 18
+								},
+								"children": []
+							},
+							{
+								"data": {
+									"id": "cy6a32cll8o0",
+									"created": 1704407644116,
+									"text": "IndexItem",
+									"font-weight": "bold",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-size": 18
+								},
+								"children": []
+							},
+							{
+								"data": {
+									"id": "cy6a32cll8o0",
+									"created": 1704407644116,
+									"text": "IndexItem",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-weight": "bold",
+									"font-size": 18
+								},
+								"children": []
+							}
+						]
+					}
+				]
+			},
+			{
+				"data": {
+					"id": "cy6a16iwtg80",
+					"created": 1704407496476,
+					"text": "HEADER",
+					"font-size": 24,
+					"background": "#365f91",
+					"color": "#ffffff"
+				},
+				"children": [
+					{
+						"data": {
+							"id": "cy6a4i4ro1s0",
+							"created": 1704407756835,
+							"text": "Nav",
+							"font-size": 24,
+							"font-weight": "bold",
+							"background": "#76923c",
+							"color": "#ffffff"
+						},
+						"children": [
+							{
+								"data": {
+									"id": "cy6a4msjmj40",
+									"created": 1704407766980,
+									"text": "Logo",
+									"font-weight": "bold",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-size": 18
+								},
+								"children": []
+							},
+							{
+								"data": {
+									"id": "cy6a4tdwd6g0",
+									"created": 1704407781332,
+									"text": "MenuBar",
+									"font-weight": "bold",
+									"background": "#938953",
+									"color": "#ffffff",
+									"font-size": 18
+								},
+								"children": []
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"template": "structure",
+	"theme": "fresh-purple",
+	"version": "1.4.43"
+}
