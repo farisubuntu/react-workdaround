@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react';
 import { useTasksDispatch } from './TasksContext.js';
+import TaskList from './TaskList.js';
 
-export default function AddTask() {
+function AddTask() {
   const [text, setText] = useState('');
   const dispatch = useTasksDispatch();
   return (
@@ -24,3 +25,5 @@ export default function AddTask() {
 }
 
 let nextId = 3;
+
+export default AddTask;
