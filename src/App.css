@@ -1,0 +1,7 @@
+#map{
+ height: 600px;
+}
+.leaflet-container{
+ border: 3px solid black;
+
+}
