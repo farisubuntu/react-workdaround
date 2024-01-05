@@ -32,9 +32,8 @@ function Form({ children }) {
 
 function Panel({ title, children }) {
   const theme = useContext(ThemeContext);
-  const className = 'panel-' + theme;
   return (
-    <section className={className}>
+    <section className={theme}>
       <h1>{title}</h1>
       {children}
     </section>
@@ -43,9 +42,9 @@ function Panel({ title, children }) {
 
 function Button({ children }) {
   const theme = useContext(ThemeContext);
-  const className = 'button-' + theme;
+ 
   return (
-    <button className={className}>
+    <button className={theme}>
       {children}
     </button>
   );
