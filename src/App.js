@@ -1,21 +1,15 @@
-import Box from './Box.js';
+import { useState } from 'react';
+import Map from './Map.js';
 
 export default function App() {
+  const [zoomLevel, setZoomLevel] = useState(0);
   return (
     <>
-      <LongSection />
-      <Box />
-      <LongSection />
-      <Box />
-      <LongSection />
+      Zoom level: {zoomLevel}x
+      <button onClick={() => setZoomLevel(zoomLevel + 1)}>+</button>
+      <button onClick={() => setZoomLevel(zoomLevel - 1)}>-</button>
+      <hr />
+      <Map zoomLevel={zoomLevel} />
     </>
   );
-}
-
-function LongSection() {
-  const items = [];
-  for (let i = 0; i < 50; i++) {
-    items.push(<li key={i}>Item #{i} (keep scrolling)</li>);
-  }
-  return <ul>{items}</ul>
 }
