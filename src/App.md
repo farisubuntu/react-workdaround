@@ -1,3 +1,4 @@
-Sometimes, you want to keep an external system synchronized to some prop or state of your component.
+# Fetching data with Effects 
+You can use an Effect to fetch data for your component. Note that if you use a framework, using your framework’s data fetching mechanism will be a lot more efficient than writing Effects manually.
 
-For example, if you have a third-party map widget or a video player component written without React, you can use an Effect to call methods on it that make its state match the current state of your React component. This Effect creates an instance of a MapWidget class defined in map-widget.js. When you change the zoomLevel prop of the Map component, the Effect calls the setZoom() on the class instance to keep it synchronized:
+If you want to fetch data from an Effect manually, your code might look like this:
