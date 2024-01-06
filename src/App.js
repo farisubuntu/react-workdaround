@@ -1,11 +1,14 @@
-import './App.css';
+import "./App.css";
+import { useContext } from "react";
+import { StoreProvider } from "./store";
 
 function App() {
+  const store=useContext(StoreProvider);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello World - React</h1>
-      </header>
+        <h3>Sharing</h3>
+        
     </div>
   );
 }
