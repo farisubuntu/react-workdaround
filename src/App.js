@@ -1,40 +1,25 @@
-import { useState, useEffect } from 'react';
-import { fetchBio } from './api.js';
+import "./App.css";
+import { useState, useEffect } from "react";
+import Category from "./Category.js";
 
 function Page() {
-  const [person, setPerson] = useState('Alice');
-  const [bio, setBio] = useState(null);
-  useEffect(() => {
-    let ignore = false;
-    setBio(null);
-    fetchBio(person).then(result => {
-      if (!ignore) {
-        setBio(result);
-      }
-    });
-    return () => {
-      ignore = true;
-    }
-  }, [person]);
-
+  const [currCatNum, setCurrCatNum] = useState(1);
   return (
     <>
-      <select value={person} onChange={e => {
-        setPerson(e.target.value);
-      }}>
-        <option value="Alice">Alice</option>
-        <option value="Bob">Bob</option>
-        <option value="Taylor">Taylor</option>
-      </select>
-      <hr />
-      <p><i>{bio ?? 'Loading...'}</i></p>
+      <div className="top-buttons">
+        <button type="button" class="btn btn-success">
+          السابق
+        </button>
+        <button type="button" class="btn btn-success">
+          التالي
+        </button>
+      </div>
+      <Category cat_no={currCatNum} />
     </>
   );
 }
 
-function App(){
-  return(
-    <Page />
-  )
+function App() {
+  return <Page />;
 }
 export default App;
