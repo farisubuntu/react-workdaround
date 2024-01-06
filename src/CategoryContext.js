@@ -1,7 +1,8 @@
-import { createContext } from "react";
+import { useState,createContext } from "react";
 
 
-const CategoryContext=createContext(null);
+const CategoryContext=createContext(1);
 
 
-export default CategoryContext;
+
+export {CategoryContext};
