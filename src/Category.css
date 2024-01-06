@@ -4,10 +4,15 @@
  row-gap: 2rem;
  column-gap: 2rem;
 }
-img{
+img.card-img-top{
  width: 100%;
 }
-
+div.img-wrapper {
+ /* width:250px!important; */
+ height: 25vh;
+ 
+ 
+}
 span.badge{
  margin-right: 0.5rem;
 }

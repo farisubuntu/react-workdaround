@@ -9,6 +9,8 @@ function Page() {
   const context = useContext(CategoryContext);
   const [cat_no, setCatNo] = useState(context);
   let [catName, setCatName] = useState("");
+  // let [imgurl, setImageUrl] = useState("");
+
   useEffect(() => {
     let url = resolveCategoryUrl(cat_no);
     fetch(url)
@@ -34,7 +36,7 @@ function Page() {
         >
           السابق
         </button>
-        <h2>{catName}</h2>
+        <h2 className="cat-title bg-primary">{catName}</h2>
         <button
           onClick={handleNextClick}
           type="button"
@@ -43,8 +45,23 @@ function Page() {
           التالي
         </button>
       </div>
+
       <CategoryContext.Provider value={cat_no}>
-        <Category cat_no={cat_no} />
+        <div className="container">
+          <div className="row">
+            <div class="img-wrapper">
+              <img
+                src={`https://raw.githubusercontent.com/farisubuntu/vite-app1/main/src/assets/images/${cat_no}.jpeg`}
+                className="card-img-top"
+                alt="Not found"
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <Category cat_no={cat_no} />
+          </div>
+        </div>
       </CategoryContext.Provider>
     </>
   );

@@ -14,7 +14,7 @@ function Lesson({ index }) {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCurrentLesson(data.lesson));
-      
+
   },[currentCat]);
   return (
     <>
@@ -25,7 +25,7 @@ function Lesson({ index }) {
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
-            الإختبارات
+            التدريبات
             <span className="badge bg-secondary">
               {" "}
               {currnetLesson.countQuiz}
@@ -52,14 +52,14 @@ function Lesson({ index }) {
 }
 function Category({cat_no}) {
   const currentCat=useContext(CategoryContext);
-  let imageUrl = `https://raw.githubusercontent.com/farisubuntu/vite-app1/main/src/assets/images/${cat_no}.jpeg`;
-  console.log("befor useEffect, cat_no = ", cat_no);
+  
+
   
 
   return (
     <>
       <CategoryContext.Provider value={currentCat}>
-        <img src={imageUrl} className="card-img-top" alt={imageUrl} />
+        
           
         <div className="card-wrapper">
           <Lesson index={1} />
